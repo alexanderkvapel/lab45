@@ -79,6 +79,20 @@ namespace lab4_5
             }
         }
 
+        private float lpx
+        {
+            get { return lp[0]; }
+            set
+            {
+                if (value > 180)
+                    lp[0] = -180.0f;
+                else if (value < -180)
+                    lp[0] = 180.0f;
+                else
+                    lp[0] = value;
+            }
+        }
+
         public Plot(int w, int h)
         {
             windowsforms = new GameWindow(w, h, GraphicsMode.Default, "Даниленко, Шар");
@@ -181,11 +195,11 @@ namespace lab4_5
 
             if (e.Key == Key.V)
             {
-                lp[0] -= 5.0f;
+                lpx -= 5.0f;
             }
             else if (e.Key == Key.B)
             {
-                lp[0] += 5.0f;
+                lpx += 5.0f;
             }
 
             if (e.Key == Key.L)
