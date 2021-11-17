@@ -14,6 +14,7 @@ namespace lab4_5
         private float x = 0.0f;
         private float y = 0.0f;
         private float[] lp = { 20.0f, 20.0f, 20.0f };
+        private float t = 0.0f;
 
         private List<float[]> p0 = new List<float[]>();
         private List<float[]> p1 = new List<float[]>();
@@ -217,6 +218,13 @@ namespace lab4_5
 
         private void Window_RenderFrame(object sender, FrameEventArgs e)
         {
+            t += 0.05f;
+
+            float n0;
+            float n1;
+            float n2;
+            float n3;
+
             GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             GL.Translate(0.0, 0.0, -view);
@@ -225,20 +233,37 @@ namespace lab4_5
 
             for(int i = 0; i < p0.Count; i++)
             {
+                if (p0[i][0] / radius > 0)
+                    n0 = (float)Math.Sin(t);
+                else
+                    n0 = p0[i][0];
+                if (p1[i][0] / radius > 0)
+                    n1 = (float)Math.Sin(t);
+                else
+                    n1 = p1[i][0];
+                if (p2[i][0] / radius > 0)
+                    n2 = (float)Math.Sin(t);
+                else
+                    n2 = p2[i][0];
+                if (p3[i][0] / radius > 0)
+                    n3 = (float)Math.Sin(t);
+                else
+                    n3 = p3[i][0];
+
                 GL.Begin(PrimitiveType.Triangles);
 
-                GL.Normal3(p0[i][0] / radius, p0[i][1] / radius, p0[i][2] / radius);
+                GL.Normal3(n0, p0[i][1] / radius, p0[i][2] / radius);
                 GL.Vertex3(p0[i][0], p0[i][1], p0[i][2]);
-                GL.Normal3(p2[i][0] / radius, p2[i][1] / radius, p2[i][2] / radius);
+                GL.Normal3(n2, p2[i][1] / radius, p2[i][2] / radius);
                 GL.Vertex3(p2[i][0], p2[i][1], p2[i][2]);
-                GL.Normal3(p1[i][0] / radius, p1[i][1] / radius, p1[i][2] / radius);
+                GL.Normal3(n1, p1[i][1] / radius, p1[i][2] / radius);
                 GL.Vertex3(p1[i][0], p1[i][1], p1[i][2]);
 
-                GL.Normal3(p3[i][0] / radius, p3[i][1] / radius, p3[i][2] / radius);
+                GL.Normal3(n3, p3[i][1] / radius, p3[i][2] / radius);
                 GL.Vertex3(p3[i][0], p3[i][1], p3[i][2]);
-                GL.Normal3(p1[i][0] / radius, p1[i][1] / radius, p1[i][2] / radius);
+                GL.Normal3(n1, p1[i][1] / radius, p1[i][2] / radius);
                 GL.Vertex3(p1[i][0], p1[i][1], p1[i][2]);
-                GL.Normal3(p2[i][0] / radius, p2[i][1] / radius, p2[i][2] / radius);
+                GL.Normal3(n2, p2[i][1] / radius, p2[i][2] / radius);
                 GL.Vertex3(p2[i][0], p2[i][1], p2[i][2]);
 
                 GL.Color3(r / 256.0f, g / 256.0f, b / 256.0f);
