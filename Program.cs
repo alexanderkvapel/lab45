@@ -253,18 +253,18 @@ namespace lab4_5
                 GL.Begin(PrimitiveType.Triangles);
 
                 GL.Normal3(n0, p0[i][1] / radius, p0[i][2] / radius);
-                GL.Vertex3(p0[i][0], p0[i][1], p0[i][2]);
+                GL.Vertex3(n0, p0[i][1], p0[i][2]);
                 GL.Normal3(n2, p2[i][1] / radius, p2[i][2] / radius);
-                GL.Vertex3(p2[i][0], p2[i][1], p2[i][2]);
+                GL.Vertex3(n2, p2[i][1], p2[i][2]);
                 GL.Normal3(n1, p1[i][1] / radius, p1[i][2] / radius);
-                GL.Vertex3(p1[i][0], p1[i][1], p1[i][2]);
+                GL.Vertex3(n1, p1[i][1], p1[i][2]);
 
                 GL.Normal3(n3, p3[i][1] / radius, p3[i][2] / radius);
-                GL.Vertex3(p3[i][0], p3[i][1], p3[i][2]);
+                GL.Vertex3(n3, p3[i][1], p3[i][2]);
                 GL.Normal3(n1, p1[i][1] / radius, p1[i][2] / radius);
-                GL.Vertex3(p1[i][0], p1[i][1], p1[i][2]);
+                GL.Vertex3(n1, p1[i][1], p1[i][2]);
                 GL.Normal3(n2, p2[i][1] / radius, p2[i][2] / radius);
-                GL.Vertex3(p2[i][0], p2[i][1], p2[i][2]);
+                GL.Vertex3(n2, p2[i][1], p2[i][2]);
 
                 GL.Color3(r / 256.0f, g / 256.0f, b / 256.0f);
 
