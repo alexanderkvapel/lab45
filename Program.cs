@@ -234,19 +234,19 @@ namespace lab4_5
             for(int i = 0; i < p0.Count; i++)
             {
                 if (p0[i][0] / radius > 0)
-                    n0 = (float)Math.Sin(t);
+                    n0 = p0[i][0] * (float)Math.Sin(t);
                 else
                     n0 = p0[i][0];
                 if (p1[i][0] / radius > 0)
-                    n1 = (float)Math.Sin(t);
+                    n1 = p1[i][0] * (float)Math.Sin(t);
                 else
                     n1 = p1[i][0];
                 if (p2[i][0] / radius > 0)
-                    n2 = (float)Math.Sin(t);
+                    n2 = p2[i][0] * (float)Math.Sin(t);
                 else
                     n2 = p2[i][0];
                 if (p3[i][0] / radius > 0)
-                    n3 = (float)Math.Sin(t);
+                    n3 = p3[i][0] * (float)Math.Sin(t);
                 else
                     n3 = p3[i][0];
 
